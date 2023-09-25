@@ -9,7 +9,6 @@ function App() {
     getWeatherByCoords(lat, lon).then((response: unknown) =>
       console.log({ response })
     );
-    console.log(import.meta.env)
 },[]);
   return <>hello</>;
 }
