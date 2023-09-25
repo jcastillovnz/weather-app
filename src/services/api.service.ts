@@ -1,6 +1,6 @@
 const API_KEY =import.meta.env.VITE_OPEN_WEATHER_API_KEY
 const VITE_OPEN_WEATHER_API =import.meta.env.VITE_OPEN_WEATHER_API
-export const makeRequest = async (
+export const getWeatherByCoords = async (
   lat: number,
   lon:number
 ): Promise<any> => {
