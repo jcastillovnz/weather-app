@@ -72,7 +72,7 @@ export interface Coord {
   lon: number;
 }
 
-interface Forecast {
+export interface Forecast {
   temp: number;
   min: number;
   max: number;

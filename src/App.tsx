@@ -1,8 +1,9 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import "./App.css";
 import { getWeatherByCoords } from "./services/api.service";
 import { CITIES } from "./constans/cities";
 import { City } from "./types/weather.type";
+import WeatherCard from "./components/WeatherCard";
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [cityForecast, setCityForecast] = useState<City | null>(null);
@@ -30,14 +31,16 @@ function App() {
           </option>
         ))}
       </select>
-
       <div>
         <h1>{cityForecast?.name}</h1>
-        <h5>
-          Temperatura actual: {cityForecast?.forecast.currentForescast.temp}
-        </h5>
-        <p>Mínima: {cityForecast?.forecast.currentForescast.min}</p>
-        <p>Máxima: {cityForecast?.forecast.currentForescast.max}</p>
+        {cityForecast && (
+          <WeatherCard forecast={cityForecast?.forecast.currentForescast} />
+        )}
+      </div>
+      <div id="forecast-container">
+        {cityForecast?.forecast.nextFiveDaysForecasts.map((forecast, index) => (
+          <WeatherCard key={index} forecast={forecast} />
+        ))}
       </div>
     </>
   );

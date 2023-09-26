@@ -8,7 +8,7 @@ const getNextFiveDaysForecasts = (forecasts: List[]) => {
   const pronosticoProximosDias = [];
   for (let i = 1; i <= 5; i++) {
     pronosticoProximosDias.push({
-      temp: forecasts[i].main.temp,
+      temp: kelvinToCelsius(forecasts[i].main.temp),
       min: kelvinToCelsius(forecasts[i].main.temp_min),
       max: kelvinToCelsius(forecasts[i].main.temp_max),
       date: forecasts[i].dt_txt,
