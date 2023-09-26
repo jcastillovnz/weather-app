@@ -1,4 +1,4 @@
-export const argentineCities = {
+export const CITIES = {
     bahia: {
       lat: 38.7196,
       lon: -62.2724
