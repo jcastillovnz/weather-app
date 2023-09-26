@@ -1,11 +1,11 @@
-import { WeatherApiResponse, CityForecast } from "../types/weather.type";
+import { WeatherApiResponse, City } from "../types/weather.type";
 import { formatUtil } from "../utils/format.util";
 const API_KEY = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
 const VITE_OPEN_WEATHER_API = import.meta.env.VITE_OPEN_WEATHER_API;
 export const getWeatherByCoords = async (
   lat: number,
   lon: number
-): Promise<CityForecast> => {
+): Promise<City> => {
   const response = await fetch(
     `${VITE_OPEN_WEATHER_API}?lat=${lat}&lon=${lon}&appid=${API_KEY}`
   );
