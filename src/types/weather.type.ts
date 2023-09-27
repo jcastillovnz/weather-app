@@ -76,10 +76,10 @@ export interface Forecast {
   temp: number;
   min: number;
   max: number;
-  date: string;
+  date: {weekDay:string, hour:string, day: number, month: number}
 }
-export interface City {
+export interface CityWeather {
   id: number;
   name: string;
-  forecast: { currentForescast: Forecast; nextFiveDaysForecasts: Forecast[] };
+  forecast: { current: Forecast; nextFiveDays: Forecast[] };
 }
