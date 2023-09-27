@@ -8,7 +8,7 @@ import { useGeolocationWeather } from "./useGeolocationWeather";
 
 export function WeatherForeCast() {
   const [cityForecast, setCityForecast] = useState<CityWeather | null>(null);
-  const handleSelectCity = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     if (e.target.value !== " ") {
       const city = e.target.value as keyof typeof CITIES;
       const { lat, lon } = CITIES[`${city}`];
@@ -20,7 +20,7 @@ export function WeatherForeCast() {
   useGeolocationWeather(setCityForecast);
   return (
     <>
-      <CitySelector handleSelect={handleSelectCity} />
+      <CitySelector handleSelect={handleSelect} />
       <div id="city-container">
         <h1>{cityForecast?.name}</h1>
         {cityForecast && (
