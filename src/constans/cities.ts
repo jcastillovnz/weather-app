@@ -1,21 +1,21 @@
 export const CITIES = {
-    bahia: {
-      lat: 38.7196,
-      lon: -62.2724
+    "Mar del plata": {
+      lat: -38.004598778196396,
+      lon: -57.581949290552785
     },
-    resistencia: {
+    "Resistencia": {
       lat: -27.4512,
       lon: -58.9866
     },
-    jujuy: {
+    "Jujuy": {
       lat: -24.1858,
       lon: -65.2995
     },
-    salta: {
+    "Salta": {
       lat: -24.7821,
       lon: -65.4121
     },
-    formosa: {
+    "Formosa": {
       lat: -26.1775,
       lon: -58.1783
     }
