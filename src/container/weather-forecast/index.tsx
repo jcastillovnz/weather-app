@@ -4,7 +4,7 @@ import { CitySelector, WeatherCard } from "../../components";
 import { WeatherForecast } from "../../components/WeatherForecast";
 import { CITIES } from "../../constans/cities";
 import { CityWeather } from "../../types/weather.type";
-import { useGeolocationWeather } from "./useEffect";
+import { useGeolocationWeather } from "./useGeolocationWeather";
 
 export function WeatherForeCast() {
   const [cityForecast, setCityForecast] = useState<CityWeather | null>(null);

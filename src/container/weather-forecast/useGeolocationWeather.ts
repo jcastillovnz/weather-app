@@ -25,5 +25,6 @@ export function useGeolocationWeather(
     } else {
       error();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setCityForecast]);
 }
