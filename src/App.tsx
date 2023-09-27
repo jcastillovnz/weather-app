@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from "react";
 import "./App.css";
 import { getWeatherByCoords } from "./services/api.service";
 import { CITIES } from "./constans/cities";
-import { City, CityWeather } from "./types/weather.type";
+import { CityWeather } from "./types/weather.type";
 import WeatherCard from "./components/WeatherCard";
 function App() {
   const [isLoading, setIsLoading] = useState(false);
