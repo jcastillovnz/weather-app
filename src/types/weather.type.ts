@@ -81,5 +81,5 @@ export interface Forecast {
 export interface CityWeather {
   id: number;
   name: string;
-  forecast: { current: Forecast; nextFiveDays: Forecast[] };
+  forecast: { current: Forecast; nextFiveDays: Forecast[] } | null;
 }
