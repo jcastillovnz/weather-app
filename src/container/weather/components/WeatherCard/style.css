@@ -1,0 +1,9 @@
+#temp-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#forecast {
+  margin-inline: 2.5rem;
+}

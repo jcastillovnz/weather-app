@@ -11,6 +11,8 @@ const formatForecast = (forecast: List):Forecast => {
     temp: forecast.main.temp,
     min: forecast.main.temp_min,
     max: forecast.main.temp_max,
+    humidity:forecast.main.humidity,
+    weather:forecast.weather[0],
     date: convertDate(forecast.dt_txt),
   };
 };

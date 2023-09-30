@@ -17,18 +17,7 @@
   display: flex;
   flex-direction: row;
 }
-#city-container {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-#forecast {
-  margin-inline: 2.5rem;
-}
 
-#current-temp {
-  font-size: 1rem;
-}
 h1{
   text-align: center;
 }

@@ -76,7 +76,14 @@ export interface Forecast {
   temp: number;
   min: number;
   max: number;
-  date: {weekDay:string, hour:string, day: number, month: number}
+  humidity: number;
+  weather:{
+    id: number,
+    main: string,
+    description: string,
+    icon: string
+    }
+  date: { weekDay: string; hour: string; day: number; month: number };
 }
 export interface CityWeather {
   id: number;
