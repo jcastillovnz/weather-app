@@ -1,18 +1,18 @@
 import { useEffect } from "react";
-import { getWeatherByCoords } from "../../services/api.service";
-import { CityWeather } from "../../types/weather.type";
+import { useDispatch } from "react-redux";
+import { weatherSagasActions } from "../../../store/features";
 
-export function useGeolocationWeather(
-  setCityForecast: React.Dispatch<React.SetStateAction<CityWeather | null>>
-) {
+export function useGeolocationWeather() {
+  const dispatch = useDispatch();
   function success(position: {
     coords: { latitude: number; longitude: number };
   }) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
-    getWeatherByCoords(lat, lon)
-      .then((res) => setCityForecast(res))
-      .catch((err) => console.log("error: ", err));
+    dispatch({
+      type: weatherSagasActions.FETCH_WEATHER,
+      payload: { lat, lon },
+    });
   }
 
   function error() {
@@ -25,6 +25,6 @@ export function useGeolocationWeather(
     } else {
       error();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setCityForecast]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 }

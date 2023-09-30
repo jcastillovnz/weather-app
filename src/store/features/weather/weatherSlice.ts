@@ -14,7 +14,7 @@ const weatherSlice = createSlice({
   initialState,
   reducers: {
     setWeather: (state, action: SetWeatherAction) => {
-      state = { ...action.payload };
+      return { ...state, ...action.payload };
     },
   },
 });

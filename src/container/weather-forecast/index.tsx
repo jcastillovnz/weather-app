@@ -1,36 +1,42 @@
-import { ChangeEvent, useState } from "react";
-import { getWeatherByCoords } from "../../services/api.service";
+import { ChangeEvent } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { CitySelector, WeatherCard } from "../../components";
 import { WeatherForecast } from "../../components/WeatherForecast";
 import { CITIES } from "../../constans/cities";
-import { CityWeather } from "../../types/weather.type";
-import { useGeolocationWeather } from "./useGeolocationWeather";
+import { useGeolocationWeather } from "./hooks";
+import {
+  selectCityName,
+  selectCurrentForecast,
+  selectNextFiveDaysForecast,
+} from "../../store/features/weather/selector";
+import { weatherSagasActions } from "../../store/features";
 
 export function WeatherForeCast() {
-  const [cityForecast, setCityForecast] = useState<CityWeather | null>(null);
+  const dispatch = useDispatch();
+  const cityName = useSelector(selectCityName);
+  const currentForecast = useSelector(selectCurrentForecast);
+  const forecast = useSelector(selectNextFiveDaysForecast);
+
   const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     if (e.target.value !== " ") {
       const city = e.target.value as keyof typeof CITIES;
       const { lat, lon } = CITIES[`${city}`];
-      getWeatherByCoords(lat, lon)
-        .then((res) => setCityForecast(res))
-        .catch((err) => console.log("error: ", err))
+      dispatch({
+        type: weatherSagasActions.FETCH_WEATHER,
+        payload: { lat, lon },
+      });
     }
   };
-  useGeolocationWeather(setCityForecast);
+  useGeolocationWeather();
   return (
     <>
       <CitySelector handleSelect={handleSelect} />
       <div id="city-container">
-        <h1>{cityForecast?.name}</h1>
-        {cityForecast && (
-          <WeatherCard forecast={cityForecast?.forecast.current} />
-        )}
+        <h1>{cityName}</h1>
+        {currentForecast && <WeatherCard forecast={currentForecast} />}
       </div>
       <hr />
-      {cityForecast && (
-        <WeatherForecast forecasts={cityForecast?.forecast.nextFiveDays} />
-      )}
+      {forecast && <WeatherForecast forecasts={forecast} />}
     </>
   );
 }
