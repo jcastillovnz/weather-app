@@ -1,7 +1,7 @@
 import "./App.css";
-import { WeatherForeCast } from "./container/weather-forecast";
+import { Weather } from "./container/weather";
 function App() {
-  return <WeatherForeCast />;
+  return <Weather />;
 }
 
 export default App;

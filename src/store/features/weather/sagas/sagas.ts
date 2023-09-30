@@ -9,11 +9,9 @@ import { weatherSagasActions } from "./actions";
 function* fetchWeather({
   payload: { lat, lon },
 }: PayloadAction<{ lat: number; lon: number }>) {
-  console.log({ lat, lon });
   try {
-    const response: CityWeather = yield getWeatherByCoords(lat, lon);
     yield put(appActions.setIsLoading(true));
-    console.log({ response });
+    const response: CityWeather = yield getWeatherByCoords(lat, lon);
     yield put(weatherActions.setWeather(response));
   } catch (error) {
     console.log({ error });

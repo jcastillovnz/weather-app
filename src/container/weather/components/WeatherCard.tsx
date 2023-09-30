@@ -1,4 +1,4 @@
-import { Forecast } from '../types/weather.type';
+import { Forecast } from "../../../types";
 
 export const WeatherCard = ({ forecast: { temp, min, max, date } }:{forecast: Forecast}) => {
   return (
