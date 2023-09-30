@@ -1,5 +1,6 @@
-import { WeatherCard } from "./WeatherCard";
-import { selectNextFiveDaysForecast } from "../../../store/features";
+import './style.css'
+import { WeatherCard } from "../WeatherCard";
+import { selectNextFiveDaysForecast } from "../../../../store/features";
 import { useSelector } from "react-redux";
 
 export const WeatherForecastDisplay = () => {
