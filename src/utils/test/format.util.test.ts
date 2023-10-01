@@ -9,7 +9,6 @@ describe("formatUtil", () => {
   it.only("should format response correctly", () => {
     const mockDate = new Date("2023-10-01T12:55:00Z");
     vi.setSystemTime(mockDate);
-    console.log({ now: Date.now() });
     const formattedWeather = formatUtil.formatResponse(weatherResponse);
     expect(formattedWeather.id).toBe(3862744);
     expect(formattedWeather.name).toBe("Departamento de Capital");
