@@ -20,11 +20,11 @@ export const WeatherCard = ({
       <p>Mínima: {min} °C</p>
       <p>Máxima: {max} °C</p>
       <p>Humedad: {humidity} %</p>
-      <p> {date.weekDay}</p>
+       <p> {date.weekDay}</p>
       <p>
         {" "}
         {date.day}/{date.month} {date.hour}
-      </p>
+      </p> 
     </div>
   );
 };

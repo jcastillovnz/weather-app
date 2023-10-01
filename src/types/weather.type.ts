@@ -83,7 +83,7 @@ export interface Forecast {
     description: string,
     icon: string
     }
-  date: { weekDay: string; hour: string; day: number; month: number };
+  date: { weekDay: string; hour: string; day: number; month: string };
 }
 export interface CityWeather {
   id: number;
