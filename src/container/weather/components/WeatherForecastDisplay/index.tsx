@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 export const WeatherForecastDisplay = () => {
   const forecasts = useSelector(selectForecasts);
-  console.log({forecasts})
   return (
     <div>
       <h1>Pronóstico del tiempo para los próximos 5 días</h1>

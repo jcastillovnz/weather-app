@@ -15,14 +15,15 @@ function* fetchWeather({
 }: PayloadAction<{ lat: number; lon: number }>) {
   try {
     yield put(appActions.setIsLoading(true));
-    const weatherCity: WeatherApiResponse = yield fetchWeatherByCoords(lat, lon);
+    const weatherCityResponse: WeatherApiResponse = yield fetchWeatherByCoords(lat, lon);
     const forecastsResponse: ForecastApiResponse = yield fetchForecastsByCoords(
       lat,
       lon
     );
-    const responseFormatedd = formatUtil.formatForescastsResponse(forecastsResponse);
-    yield put(weatherActions.setForecasts(responseFormatedd));
-    yield put(weatherActions.setWeather(weatherCity));
+    const forecastsFormated = formatUtil.formatForescastsResponse(forecastsResponse);
+    const weatherCityFormated = formatUtil.formatWeatherCityResponse(weatherCityResponse);
+    yield put(weatherActions.setForecasts(forecastsFormated));
+    yield put(weatherActions.setWeather(weatherCityFormated));
   } catch (error) {
     console.log({ error });
     //todo add logica error

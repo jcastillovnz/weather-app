@@ -1,15 +1,15 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Forecast, WeatherApiResponse } from "../../../types";
+import { CityWeather, Forecast } from "../../../types";
 
 const initialState: {
-  city: WeatherApiResponse | null;
+  city: CityWeather | null;
   forecasts: Forecast[] | null;
 } = {
   city: null,
   forecasts: null,
 };
 
-type SetWeatherAction = PayloadAction<WeatherApiResponse>;
+type SetWeatherAction = PayloadAction<CityWeather>;
 type SetForecastsAction = PayloadAction<Forecast[]>;
 const weatherSlice = createSlice({
   name: "weather",

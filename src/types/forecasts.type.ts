@@ -71,3 +71,12 @@ export interface Forecast {
   date: { weekDay: string; hour: string; day: number; month: string };
 }
 
+export interface FormatForecastProps {
+  temp: number;
+  temp_min: number;
+  temp_max: number;
+  humidity: number;
+  weather: Weather[];
+  dt_txt: string;
+}
+
