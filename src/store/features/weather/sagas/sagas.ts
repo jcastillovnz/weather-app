@@ -3,16 +3,18 @@ import { all, put, takeEvery } from "redux-saga/effects";
 import { weatherActions } from "../weatherSlice";
 import { appActions } from "../../app";
 import { getWeatherByCoords } from "../../../../services/api.service";
-import { CityWeather } from "../../../../types/weather.type";
+import { WeatherApiResponse } from "../../../../types/weather.type";
 import { weatherSagasActions } from "./actions";
+import { formatUtil } from "../../../../utils/format.util";
 
 function* fetchWeather({
   payload: { lat, lon },
 }: PayloadAction<{ lat: number; lon: number }>) {
   try {
     yield put(appActions.setIsLoading(true));
-    const response: CityWeather = yield getWeatherByCoords(lat, lon);
-    yield put(weatherActions.setWeather(response));
+    const response: WeatherApiResponse = yield getWeatherByCoords(lat, lon);
+    const responseFormatedd = formatUtil.formatResponse(response);
+    yield put(weatherActions.setWeather(responseFormatedd));
   } catch (error) {
     console.log({ error });
     //todo add logica error
