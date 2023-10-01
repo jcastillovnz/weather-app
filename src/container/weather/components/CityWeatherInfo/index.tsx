@@ -2,20 +2,19 @@ import './style.css'
 import { useSelector } from "react-redux";
 import { WeatherCard } from "../WeatherCard";
 import {
-  selectCityName,
-  selectCurrentForecast,
+  selectCityWeather,
+  selectForecasts,
 } from "../../../../store/features";
 import { WeatherForecastDisplay } from "../WeatherForecastDisplay";
 
 export const CityWeatherInfo = () => {
-  const cityName = useSelector(selectCityName);
-  const forecast = useSelector(selectCurrentForecast);
+  const cityWeather = useSelector(selectCityWeather);
   return (
     <>
-      <div id="city-container">
-        <h1>{cityName}</h1>
+{/*       <div id="city-container">
+        <h1>{cityWeather?.name}</h1>
         {forecast && <WeatherCard forecast={forecast} />}
-      </div>
+      </div> */}
       <hr />
       <WeatherForecastDisplay />
     </>

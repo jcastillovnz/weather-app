@@ -1,20 +1,14 @@
 import { createSelector } from '@reduxjs/toolkit'
 import { RootState } from "../../store";
-import { CityWeather } from "../../../types";
 
 const selectWeatherState = (state: RootState) => state.weather;
 
-export const selectCityName = createSelector(
+export const selectCityWeather = createSelector(
   [selectWeatherState],
-  (weatherState: CityWeather) => weatherState.name
+  (weatherState) => weatherState.city
 );
 
-export const selectCurrentForecast = createSelector(
+export const selectForecasts = createSelector(
   [selectWeatherState],
-  (weatherState: CityWeather) => weatherState.forecast?.current
-);
-
-export const selectNextFiveDaysForecast = createSelector(
-  [selectWeatherState],
-  (weatherState: CityWeather) => weatherState.forecast?.nextFiveDays
+  (weatherState) => weatherState.forecasts
 );
