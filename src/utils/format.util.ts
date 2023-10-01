@@ -35,9 +35,10 @@ const formatForecast = (forecast: List): Forecast => {
 };
 const getWeatherForecasts = (
   forecasts: List[],
-  timezoneString: string = "America/Argentina/Buenos_Aires"
+  timezoneOffset: number
 ) => {
-  const today = dayjs().tz(timezoneString);
+  const today = dayjs().utcOffset(timezoneOffset);
+  console.log({today:today.toDate() })
   const mostRecentForecast: List = forecasts.find((item) => {
     const forecastDate = dayjs(item.dt_txt);
     return forecastDate.isSame(today, "day");
@@ -48,7 +49,7 @@ const getWeatherForecasts = (
   const endDate = startDate.clone().add(5, "day").endOf("day");
   const uniqueDates = new Set();
   for (const forecast of forecasts) {
-    const forecastDate = dayjs(forecast.dt_txt).tz(timezoneString).startOf("day");
+    const forecastDate = dayjs(forecast.dt_txt).utcOffset(timezoneOffset).startOf("day");
     if (forecastDate >= startDate && forecastDate <= endDate){
       const dateStr = forecastDate.format("YYYY-MM-DD");
       if (!uniqueDates.has(dateStr)) {
@@ -68,7 +69,7 @@ const formatResponse = (response: WeatherApiResponse): CityWeather => {
   return {
     id: response.city.id,
     name: response.city.name,
-    forecast: getWeatherForecasts(response.list),
+    forecast: getWeatherForecasts(response.list, response.city.timezone),
   };
 };
 
