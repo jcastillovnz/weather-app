@@ -11,6 +11,7 @@ export function Weather() {
   const error = useSelector(selectError);
   useGeolocationWeather();
   if (error) return <ErrorCard message={error} />;
+
   return (
     <>
       <CityDropdownSelector onChange={handleSelect} />
