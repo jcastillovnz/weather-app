@@ -1,2 +1,2 @@
-export * from './forecastsExpected';
+export * from './weatherExpected';
 export * from './weatherResponseMock'

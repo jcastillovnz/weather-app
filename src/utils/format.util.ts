@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import es from "dayjs/locale/es";
-import isBetween from "dayjs/plugin/isBetween";
+
 import {
   ForecastApiResponse,
   List,
@@ -11,7 +11,6 @@ import {
   CityWeather,
   FormatForecastProps,
 } from "../types";
-dayjs.extend(isBetween);
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.locale(es);

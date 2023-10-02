@@ -1,4 +1,4 @@
-export const weatherResponse = {
+export const forecastApiResponseMock = {
   cod: "200",
   message: 0,
   cnt: 40,
@@ -946,4 +946,50 @@ export const weatherResponse = {
     sunrise: 1696154096,
     sunset: 1696198683,
   },
+};
+export const cityWeatherApiResponseMock = {
+  coord: {
+    lon: -64.207,
+    lat: -31.4067,
+  },
+  weather: [
+    {
+      id: 800,
+      main: "Clear",
+      description: "clear sky",
+      icon: "01n",
+    },
+  ],
+  base: "stations",
+  main: {
+    temp: 19.94,
+    feels_like: 18.85,
+    temp_min: 19.94,
+    temp_max: 19.94,
+    pressure: 1011,
+    humidity: 33,
+    sea_level: 1011,
+    grnd_level: 965,
+  },
+  visibility: 10000,
+  wind: {
+    speed: 3.95,
+    deg: 32,
+    gust: 9.66,
+  },
+  clouds: {
+    all: 0,
+  },
+  dt: 1696205050,
+  sys: {
+    type: 2,
+    id: 2074146,
+    country: "AR",
+    sunrise: 1696154096,
+    sunset: 1696198683,
+  },
+  timezone: -10800,
+  id: 3862744,
+  name: "Departamento de Capital",
+  cod: 200,
 };

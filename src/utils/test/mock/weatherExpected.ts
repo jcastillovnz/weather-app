@@ -1,21 +1,3 @@
-export const currentForecastExpected = {
-  temp: 25.15,
-  min: 25.15,
-  max: 26.61,
-  humidity: 24,
-  weather: {
-    id: 800,
-    main: "Clear",
-    description: "clear sky",
-    icon: "01d",
-  },
-  date: {
-    weekDay: "domingo",
-    hour: "18:00",
-    day: 1,
-    month: "octubre",
-  },
-};
 export const nexFiveDaysForecastExpected = [
   {
     temp: 18.93,
@@ -108,3 +90,26 @@ export const nexFiveDaysForecastExpected = [
     },
   },
 ];
+
+export const cityWeatherExpected = {
+  name: "Departamento de Capital",
+  id: 3862744,
+  weather: {
+    temp: 19.94,
+    min: 19.94,
+    max: 19.94,
+    humidity: 33,
+    weather: {
+      id: 800,
+      main: "Clear",
+      description: "clear sky",
+      icon: "01n",
+    },
+    date: {
+      weekDay: "domingo",
+      hour: "19:10",
+      day: 1,
+      month: "octubre",
+    },
+  },
+}
