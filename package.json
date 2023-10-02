@@ -23,6 +23,7 @@
     "redux-saga": "^1.2.3"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
     "@types/node": "^20.6.5",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",

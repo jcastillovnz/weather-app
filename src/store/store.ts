@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
-import { appReducer, weatherReducer } from "./features";
+import { weatherReducer } from "./features";
 import rootSaga from "./sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
-  reducer: { app: appReducer, weather: weatherReducer },
+  reducer: { weather: weatherReducer },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(sagaMiddleware),
   devTools: true,
