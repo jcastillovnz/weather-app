@@ -81,7 +81,7 @@ const getNextFiveForecast = (forecasts: List[], timezoneOffset: number) => {
   return nextFiveDays;
 };
 
-const formatForescastsResponse = (response: ForecastApiResponse) => {
+const formatForecastsResponse = (response: ForecastApiResponse) => {
   const timeOffsetInMinuts = response.city.timezone / 60;
   return getNextFiveForecast(response.list, timeOffsetInMinuts);
 };
@@ -107,6 +107,6 @@ const formatWeatherCityResponse = (
 };
 
 export const formatUtil = {
-  formatForescastsResponse,
+  formatForecastsResponse,
   formatWeatherCityResponse,
 };

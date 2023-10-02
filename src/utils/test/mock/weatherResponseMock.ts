@@ -993,3 +993,16 @@ export const cityWeatherApiResponseMock = {
   name: "Departamento de Capital",
   cod: 200,
 };
+
+export const forecastApiResponsePastMock = {
+  ...structuredClone(forecastApiResponseMock),
+  list: forecastApiResponseMock.list.map((item) => ({
+    ...item,
+    dt_txt: "2023-10-05 12:00:00",
+  })),
+};
+
+export const forecastApiResponseEmptyMock = {
+  ...structuredClone(forecastApiResponseMock),
+  list: [],
+};

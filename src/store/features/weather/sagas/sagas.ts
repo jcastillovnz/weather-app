@@ -20,7 +20,7 @@ function* fetchWeather({
       lat,
       lon
     );
-    const forecastsFormated = formatUtil.formatForescastsResponse(forecastsResponse);
+    const forecastsFormated = formatUtil.formatForecastsResponse(forecastsResponse);
     const weatherCityFormated = formatUtil.formatWeatherCityResponse(weatherCityResponse);
     yield put(weatherActions.setForecasts(forecastsFormated));
     yield put(weatherActions.setWeather(weatherCityFormated));
